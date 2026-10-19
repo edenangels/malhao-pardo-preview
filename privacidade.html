@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+<head>
+<script src="js/preview-mode.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Privacidade e RGPD — Herdade do Malhão Pardo</title>
+<meta content="index,follow" name="robots"/>
+<link as="font" crossorigin="" href="fonts/PlayfairDisplay-400-lat.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="fonts/Montserrat-400-lat.woff2" rel="preload" type="font/woff2"/>
+<style>
+/* Self-hosted 2026-09-02: the type no longer travels to Google.
+   Removes two external hosts from the critical path and one recipient of every
+   visitor's IP from the privacy policy. unicode-range means a browser fetches only
+   the subset it actually needs — latin for PT and EN. */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(fonts/Montserrat-300-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(fonts/Montserrat-300-lat.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/Montserrat-400-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/Montserrat-400-lat.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/Montserrat-500-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/Montserrat-500-lat.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/Montserrat-600-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/Montserrat-600-lat.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/PlayfairDisplay-400i-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/PlayfairDisplay-400i-lat.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/PlayfairDisplay-500i-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/PlayfairDisplay-500i-lat.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/PlayfairDisplay-400-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/PlayfairDisplay-400-lat.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/PlayfairDisplay-500-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/PlayfairDisplay-500-lat.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/Montserrat-700-lat.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/Montserrat-700-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root{--terra:#A9834A;--olive:#4E5637;--stone:#EFEAE0;--ink:#2B2C22;--paper:#F5F0E4;
+  --disp:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--stone);color:var(--ink);font-size:16px;
+  line-height:1.75;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:clamp(48px,9vw,110px) clamp(22px,5vw,40px)}
+a{color:var(--terra)}
+h1{font-family:var(--disp);font-weight:400;font-size:clamp(2.2rem,5vw,3.2rem);line-height:1.1;margin-bottom:.3em}
+h2{font-family:var(--disp);font-weight:500;font-size:1.25rem;margin:2.4em 0 .6em}
+p,li{margin-bottom:.9em}
+ul{padding-left:1.2em}
+.eyebrow{font-size:.6rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--olive)}
+.upd{font-size:.72rem;color:#6B655D;margin-top:1.4em}
+.ph{background:rgba(169,131,74,.16);border-bottom:1px dashed var(--terra);padding:0 4px;font-weight:500}
+table{width:100%;border-collapse:collapse;margin:1em 0;font-size:.84rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid rgba(42,38,34,.14);vertical-align:top}
+th{font-weight:600;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--olive)}
+.back{display:inline-block;margin-top:3em;font-size:.72rem;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--olive);border-bottom:1px solid var(--olive);padding-bottom:2px}
+
+/* wide legal tables must scroll inside themselves, never push the page sideways */
+table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:640px){th,td{min-width:108px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<span class="eyebrow">Herdade do Malhão Pardo · Turismo Rural</span>
+<h1>Privacidade e<br/>proteção de dados</h1>
+<p>Esta página explica que dados pessoais tratamos, porquê, durante quanto tempo, e que
+  direitos tem sobre eles. Está escrita para ser lida, não para o proteger a si de nós.</p>
+<p>Aplicam-se o Regulamento (UE) 2016/679 (RGPD) e a Lei n.º 58/2019, de 8 de agosto.</p>
+<h2>Quem é o responsável pelo tratamento</h2>
+<p><span class="ph" data-fill="entity.legalName">a confirmar</span>, NIPC <span class="ph" data-fill="entity.nipc">a confirmar</span>,
+  com sede em <span class="ph" data-fill="entity.address">a confirmar</span>, registada no RNET sob o n.º
+  <span class="ph" data-fill="entity.rnet">a confirmar</span>.<br/>
+  Contacto para assuntos de dados pessoais: <span class="ph" data-fill="contact.email">a confirmar</span>.</p>
+<p>Não designámos Encarregado de Proteção de Dados: a nossa atividade não preenche os critérios
+  do artigo 37.º do RGPD (não fazemos controlo sistemático em larga escala nem tratamos categorias
+  especiais em larga escala). Para qualquer questão sobre dados pessoais, o contacto acima responde.</p>
+<h2>Que dados tratamos e com que fundamento</h2>
+<table>
+<tr><th>Finalidade</th><th>Dados</th><th>Fundamento (RGPD)</th><th>Conservação</th></tr>
+<tr><td>Responder a um pedido de reserva</td>
+<td>Nome, email, datas, n.º de hóspedes, notas que nos deixe</td>
+<td>Diligências pré-contratuais — art. 6.º/1/b</td>
+<td>24 meses após o último contacto, se a reserva não se concretizar</td></tr>
+<tr><td>Gerir a estadia e a faturação</td>
+<td>Dados de contacto e de faturação (nome, NIF, morada)</td>
+<td>Execução do contrato e obrigação legal — art. 6.º/1/b e /c</td>
+<td>10 anos, por imposição da legislação fiscal</td></tr>
+<tr><td>Comunicação de hóspedes estrangeiros (SIBA)</td>
+<td>Dados de identificação exigidos por lei (nome, data de nascimento, nacionalidade,
+            documento, datas de entrada e saída)</td>
+<td>Obrigação legal — art. 6.º/1/c (Lei n.º 23/2007, art. 16.º)</td>
+<td>Enviados no prazo legal; a nossa cópia é eliminada
+            <span class="ph" data-fill="policies.sibaRetention">a confirmar</span></td></tr>
+<tr><td>Pagamentos online (vales-presente)</td>
+<td>Nome e email do comprador, produto, montante e estado do pagamento. Os dados do
+            cartão são introduzidos e tratados pela Stripe — nunca passam por nós nem os guardamos</td>
+<td>Execução do contrato — art. 6.º/1/b; conservação por obrigação legal — art. 6.º/1/c</td>
+<td>Registo da compra: 24 meses. Documentos fiscais: 10 anos</td></tr>
+<tr><td>Assistente de conversação no site</td>
+<td>As mensagens que escrever no assistente</td>
+<td>Interesse legítimo em responder-lhe — art. 6.º/1/f</td>
+<td>Não guardamos a conversa: ver a secção «O assistente de IA»</td></tr>
+<tr><td>Lista de espera («a lista»)</td>
+<td>O endereço de e-mail que nos deixa, e o idioma em que nos escreveu</td>
+<td>Consentimento — art. 6.º/1/a. Pode retirá-lo a qualquer momento, e a ligação para o
+            fazer segue em todas as mensagens</td>
+<td>Até pedir para sair da lista</td></tr>
+<tr><td>Funcionamento e segurança do site</td>
+<td>Registos técnicos de acesso (endereço IP, tipo de navegador) recolhidos pelos
+            fornecedores de alojamento</td>
+<td>Interesse legítimo em manter o site disponível e seguro — art. 6.º/1/f</td>
+<td>Períodos curtos definidos por esses fornecedores</td></tr>
+</table>
+<p>Não usamos os seus dados para publicidade comportamental e não os vendemos a ninguém.
+  Fora do que a lei nos obriga a pedir, os dados que nos dá são voluntários — mas sem os
+  essenciais não conseguimos responder a um pedido de reserva nem receber-lhe a estadia.</p>
+<p>Não tratamos intencionalmente categorias especiais de dados (art. 9.º).</p>
+<h2>Quem tem acesso aos seus dados</h2>
+<p>A equipa que deles precisa, e os seguintes prestadores, que tratam dados por nossa conta e
+  sob contrato (art. 28.º do RGPD):</p>
+<table>
+<tr><th>Prestador</th><th>Função</th><th>Localização</th></tr>
+<tr><td>Cloudflare, Inc.</td>
+<td>Execução do assistente de IA (Workers AI) e do serviço de pagamentos; base de dados
+            dos registos de compra</td><td>EUA / rede global</td></tr>
+<tr><td>OneGlimpse B.V. (DM Champ)</td>
+<td>Assistente de IA de conversa no site: recebe as mensagens que escreve e os dados que nos
+            dê na conversa (por exemplo nome, e-mail, datas), guarda o histórico na nossa conta e gera
+            as respostas com modelos de IA de fornecedores seus</td>
+<td>Países Baixos (UE), alojamento na UE; alguns fornecedores de IA fora do EEE</td></tr>
+<tr><td>Stripe Payments Europe, Ltd.</td>
+<td>Processamento dos pagamentos com cartão, em páginas alojadas pela própria Stripe</td>
+<td>Irlanda (UE), com transferências para os EUA</td></tr>
+<tr><td>GitHub, Inc. (Microsoft)</td><td>Alojamento das páginas do site</td>
+<td>EUA / rede global</td></tr>
+<tr><td>jsDelivr (Prospect One / Cloudflare / Fastly)</td>
+<td>Rede de distribuição das bibliotecas de animação do site (GSAP, Lenis): ao carregar a
+            página, o seu endereço IP chega a esse serviço</td><td>Rede global</td></tr>
+<tr><td>Open-Meteo</td>
+<td>Meteorologia da herdade mostrada no cabeçalho. Pedimos as condições de um ponto fixo da
+            propriedade — nunca a sua localização</td><td>Alemanha (UE)</td></tr>
+<tr><td><span class="ph" data-fill="contact.emailProvider">a confirmar</span></td>
+<td>Caixa de correio para onde chegam os pedidos de reserva</td>
+<td><span class="ph" data-fill="contact.emailProviderLocation">a confirmar</span></td></tr>
+</table>
+<p>Comunicamos ainda dados a autoridades públicas quando a lei o exige — designadamente os
+  boletins de alojamento referidos acima.</p>
+<h2>Transferências para fora do Espaço Económico Europeu</h2>
+<p>Alguns dos prestadores acima são empresas sediadas nos Estados Unidos. Essas transferências
+  assentam na decisão de adequação da Comissão Europeia relativa ao <em>EU–US Data Privacy
+  Framework</em> (art. 45.º do RGPD), quando o prestador esteja certificado, e/ou nas Cláusulas
+  Contratuais-Tipo aprovadas pela Comissão Europeia (art. 46.º). Pode pedir-nos informação sobre
+  as garantias aplicáveis a qualquer um deles.</p>
+<h2>Comunicação de hóspedes estrangeiros (SIBA)</h2>
+<p>A lei portuguesa obriga todos os empreendimentos turísticos a comunicar a estadia de
+  hóspedes estrangeiros — incluindo cidadãos da União Europeia — através do sistema SIBA, gerido
+  pelo Sistema de Segurança Interna, no prazo de três dias úteis após o check-in
+  (Lei n.º 23/2007, de 4 de julho, artigo 16.º). É uma obrigação legal: não podemos dispensá-la
+  nem depende do seu consentimento. Pedimos-lhe apenas os dados que o boletim exige.</p>
+<h2>O assistente de IA</h2>
+<p>O assistente que aparece no canto do site é um <strong>sistema de inteligência artificial,
+  não uma pessoa</strong> — e assim é identificado na própria janela de conversa, como exige o
+  artigo 50.º do Regulamento (UE) 2024/1689 (Regulamento da Inteligência Artificial), aplicável
+  desde 2 de agosto de 2026. Pode errar em pormenores. Preços, disponibilidade e políticas são
+  sempre confirmados por uma pessoa.</p>
+<p>O assistente é fornecido pela DM Champ (OneGlimpse B.V., Países Baixos), que trata os dados
+  por nossa conta. As suas mensagens, e os dados que escolher partilhar na conversa, ficam
+  guardados na nossa conta DM Champ para que uma pessoa da equipa possa ler a conversa, retomá-la
+  e responder-lhe sobre a sua estadia. Usamo-las apenas para isso — não para criar perfis nem para
+  publicidade. Pode pedir-nos a qualquer momento que apaguemos a sua conversa. Para gerar as
+  respostas, a DM Champ recorre a fornecedores de modelos de IA, alguns fora do Espaço Económico
+  Europeu (ver «Transferências» acima).</p>
+<p>Se o serviço da DM Champ não estiver disponível, o site mostra em vez dele o nosso assistente
+  próprio: aí as mensagens são enviadas para o serviço Workers AI da Cloudflare, que gera a
+  resposta, e <strong>não são guardadas</strong> — o histórico existe apenas no seu navegador,
+  durante a visita.</p>
+<p>Não escreva no assistente dados sensíveis, números de cartão ou documentos de identificação —
+  para isso existem os canais próprios.</p>
+<h2>Decisões automatizadas</h2>
+<p>Não tomamos decisões baseadas exclusivamente em tratamento automatizado, incluindo a
+  definição de perfis, que produzam efeitos jurídicos ou o afetem significativamente
+  (art. 22.º do RGPD). O assistente conversa; quem decide sobre reservas, tarifas e políticas
+  é sempre uma pessoa da equipa.</p>
+<h2>Cookies e armazenamento no seu equipamento</h2>
+<p><strong>Este site não usa cookies de publicidade, de rastreio entre sites nem de análise de
+  audiências</strong> — e é por isso que não lhe mostramos qualquer banner de consentimento:
+  não teríamos nada a pedir-lhe. O filme do cabeçalho é servido a partir
+  do nosso próprio site — não há leitor de terceiros, e por isso nenhum serviço externo fica a
+  saber que o viu.</p>
+<p>Os tipos de letra são servidos a partir do nosso próprio site, e não pela Google Fonts: o seu
+  endereço IP não é enviado a terceiros para carregar a tipografia. O filme do topo também é
+  servido por nós, sem recurso a um leitor externo.</p>
+<p>Guardamos uma única informação no seu navegador: a chave <code>mp-lang</code>, que regista o
+  idioma que escolheu (português ou inglês) para não ter de o repetir a cada visita. É
+  armazenamento estritamente necessário ao serviço que pediu e, por isso, dispensado de
+  consentimento nos termos do artigo 5.º, n.º 3, da Lei n.º 41/2004. Fica no seu equipamento até
+  limpar os dados do navegador e não nos diz nada sobre si.</p>
+<p>A janela de conversa da DM Champ pode guardar no seu navegador o que precisa para manter a
+  conversa aberta enquanto navega (armazenamento estritamente necessário). Segundo a política da
+  própria DM Champ, se chegar ao site através de um anúncio, o widget pode ainda guardar o
+  identificador desse clique (<code>dmc_lifetime_click</code>) até 30 dias. Nós não fazemos
+  publicidade com estes dados.</p>
+<h2>Segurança</h2>
+<p>Aplicamos medidas técnicas e organizativas adequadas ao risco (art. 32.º): ligação cifrada
+  (HTTPS/TLS) em todo o site, pagamentos em páginas da própria Stripe, acesso restrito às pessoas
+  que dele precisam e eliminação automática dos dados findos os prazos acima. Se ocorrer uma
+  violação de dados pessoais suscetível de implicar risco para os seus direitos, notificamos a
+  CNPD no prazo de 72 horas e, se o risco for elevado, informamos também os titulares afetados
+  (arts. 33.º e 34.º).</p>
+<h2>Os seus direitos</h2>
+<ul>
+<li>Aceder aos seus dados, corrigi-los ou apagá-los (arts. 15.º, 16.º e 17.º);</li>
+<li>Limitar ou opor-se a determinados tratamentos (arts. 18.º e 21.º);</li>
+<li>Receber os seus dados num formato portável (art. 20.º);</li>
+<li>Retirar o consentimento, quando o tratamento nele se basear (art. 7.º/3).</li>
+</ul>
+<p>Basta escrever para <span class="ph" data-fill="contact.email">a confirmar</span>. Respondemos no prazo máximo de
+  um mês (art. 12.º/3). Para proteger a sua informação, podemos pedir-lhe elementos que confirmem
+  a sua identidade antes de darmos seguimento. Há dados que não podemos apagar a pedido enquanto a
+  lei nos obrigar a guardá-los — é o caso da faturação e dos boletins de alojamento.</p>
+<p>Se entender que não respondemos como devíamos, pode reclamar junto da Comissão Nacional de
+  Proteção de Dados — Av. D. Carlos I, 134, 1.º, 1200-651 Lisboa,
+  <a href="https://www.cnpd.pt" rel="noopener">cnpd.pt</a>. Agradecemos, ainda assim, que nos
+  procure primeiro: quase tudo se resolve mais depressa diretamente.</p>
+<h2>Reclamações e resolução de litígios</h2>
+<p>Tem à disposição o <a href="https://www.livroreclamacoes.pt/inicio" rel="noopener">Livro
+  de Reclamações Eletrónico</a>. Em caso de litígio de consumo, e nos termos do artigo 18.º da
+  Lei n.º 144/2015, a entidade de resolução alternativa competente para o distrito de Beja (concelho de Odemira) é o
+  <a href="https://www.cniacc.pt/pt" rel="noopener">CNIACC — Centro Nacional de
+  Informação e Arbitragem de Conflitos de Consumo</a>.</p>
+<h2>Alterações a esta política</h2>
+<p>Esta política pode ser atualizada. A data abaixo indica a versão em vigor; alterações
+  substanciais são assinaladas no site.</p>
+<p class="upd">Última atualização: <span class="ph" data-fill="meta.updated">a confirmar</span>. Esta minuta foi
+  preparada para revisão jurídica antes de ser considerada final.</p>
+<a class="back" href="index.html">← Voltar</a>
+</div>
+<script src="js/estate.js" defer></script>
+</body>
+</html>

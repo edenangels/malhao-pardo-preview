@@ -1,0 +1,349 @@
+{
+ "site": {
+  "estate-aerial": [
+   1560,
+   1060
+  ],
+  "estate-hills": [
+   900,
+   1132
+  ],
+  "garden-path": [
+   1600,
+   1000
+  ],
+  "garden-hedge": [
+   844,
+   1125
+  ],
+  "pool-steps": [
+   1600,
+   1067
+  ],
+  "pool-wide": [
+   1600,
+   1067
+  ],
+  "pool-parasol": [
+   1600,
+   1067
+  ],
+  "pool-loungers": [
+   1600,
+   1067
+  ],
+  "table-terrace": [
+   1200,
+   1600
+  ],
+  "table-glasses": [
+   1200,
+   1600
+  ],
+  "table-roses": [
+   1200,
+   1600
+  ],
+  "table-window": [
+   1200,
+   1600
+  ],
+  "region-zambujeira": [
+   1600,
+   995
+  ],
+  "region-malhao": [
+   1600,
+   1200
+  ],
+  "region-mira": [
+   1600,
+   1200
+  ]
+ },
+ "villas": {
+  "casa-pardo": [
+   [
+    "casa-pardo-01",
+    1600,
+    1200,
+    "The villa and its pergola",
+    "A moradia e a pérgola"
+   ],
+   [
+    "casa-pardo-02",
+    1200,
+    1600,
+    "The terrace, under the bougainvillea",
+    "O terraço, sob a buganvília"
+   ],
+   [
+    "casa-pardo-03",
+    1200,
+    1600,
+    "Bougainvillea at the window",
+    "Buganvília à janela"
+   ],
+   [
+    "casa-pardo-04",
+    1200,
+    1600,
+    "The living room",
+    "A sala"
+   ],
+   [
+    "casa-pardo-05",
+    1600,
+    1200,
+    "The double bedroom",
+    "O quarto de casal"
+   ],
+   [
+    "casa-pardo-06",
+    1200,
+    1600,
+    "The twin bedroom",
+    "O quarto duplo"
+   ],
+   [
+    "casa-pardo-07",
+    1200,
+    1600,
+    "The renovated bathroom",
+    "A casa de banho renovada"
+   ]
+  ],
+  "pine-nest": [
+   [
+    "pine-nest-01",
+    1600,
+    1200,
+    "The villa under the pines",
+    "A moradia sob os pinheiros"
+   ],
+   [
+    "pine-nest-02",
+    1600,
+    1200,
+    "Dinner under the pergola",
+    "Jantar sob a pérgola"
+   ],
+   [
+    "pine-nest-03",
+    1200,
+    1600,
+    "Doors open to the terrace",
+    "Portas abertas para o terraço"
+   ],
+   [
+    "pine-nest-04",
+    1600,
+    1200,
+    "Dining under the wooden ceiling",
+    "A mesa, sob o teto de madeira"
+   ],
+   [
+    "pine-nest-05",
+    1200,
+    1600,
+    "The kitchen",
+    "A cozinha"
+   ],
+   [
+    "pine-nest-06",
+    1600,
+    1200,
+    "The double bedroom",
+    "O quarto de casal"
+   ],
+   [
+    "pine-nest-07",
+    1600,
+    1200,
+    "The twin bedroom",
+    "O quarto duplo"
+   ]
+  ],
+  "forest-edge": [
+   [
+    "forest-edge-01",
+    1600,
+    1200,
+    "The villa and its shade sail",
+    "A moradia e o toldo"
+   ],
+   [
+    "forest-edge-02",
+    1600,
+    1200,
+    "The terrace and outdoor table",
+    "O terraço e a mesa exterior"
+   ],
+   [
+    "forest-edge-03",
+    1600,
+    1200,
+    "Lunch by the open doors",
+    "Almoço junto às portas abertas"
+   ],
+   [
+    "forest-edge-04",
+    1200,
+    1600,
+    "The living room",
+    "A sala"
+   ],
+   [
+    "forest-edge-05",
+    1600,
+    1200,
+    "Dining, doors to the garden",
+    "A mesa, com portas para o jardim"
+   ],
+   [
+    "forest-edge-06",
+    1200,
+    1600,
+    "The kitchen",
+    "A cozinha"
+   ],
+   [
+    "forest-edge-07",
+    1200,
+    1600,
+    "The double bedroom",
+    "O quarto de casal"
+   ],
+   [
+    "forest-edge-08",
+    1600,
+    1200,
+    "The twin bedroom",
+    "O quarto duplo"
+   ]
+  ],
+  "blue-hour": [
+   [
+    "blue-hour-01",
+    1600,
+    1200,
+    "The villa and its lawn",
+    "A moradia e o relvado"
+   ],
+   [
+    "blue-hour-02",
+    1600,
+    1200,
+    "A long terrace table for six",
+    "Uma mesa comprida para seis, no terraço"
+   ],
+   [
+    "blue-hour-03",
+    1200,
+    1600,
+    "Loungers under the pergola",
+    "Espreguiçadeiras sob a pérgola"
+   ],
+   [
+    "blue-hour-04",
+    1600,
+    1200,
+    "Sunlight on the dining table",
+    "Sol na mesa de jantar"
+   ],
+   [
+    "blue-hour-05",
+    1200,
+    1600,
+    "The living room and wood stove",
+    "A sala e o recuperador"
+   ],
+   [
+    "blue-hour-06",
+    1200,
+    1600,
+    "The table, laid for six",
+    "A mesa posta para seis"
+   ],
+   [
+    "blue-hour-07",
+    1200,
+    1600,
+    "The kitchen",
+    "A cozinha"
+   ],
+   [
+    "blue-hour-08",
+    1200,
+    1600,
+    "The en-suite master bedroom",
+    "A suíte"
+   ],
+   [
+    "blue-hour-09",
+    1600,
+    1200,
+    "A twin bedroom",
+    "Um quarto duplo"
+   ]
+  ],
+  "sunset-corner": [
+   [
+    "sunset-corner-01",
+    1600,
+    1200,
+    "Outdoor dining on the terrace",
+    "Refeições ao ar livre, no terraço"
+   ],
+   [
+    "sunset-corner-02",
+    1600,
+    1200,
+    "The front terrace",
+    "O terraço da entrada"
+   ],
+   [
+    "sunset-corner-03",
+    1200,
+    1600,
+    "Sun loungers in the big garden",
+    "Espreguiçadeiras no jardim grande"
+   ],
+   [
+    "sunset-corner-04",
+    1600,
+    1200,
+    "Living and dining",
+    "Sala e zona de refeições"
+   ],
+   [
+    "sunset-corner-05",
+    1600,
+    1200,
+    "Dining under the wooden ceiling",
+    "A mesa, sob o teto de madeira"
+   ],
+   [
+    "sunset-corner-06",
+    1600,
+    1200,
+    "The kitchen",
+    "A cozinha"
+   ],
+   [
+    "sunset-corner-07",
+    1200,
+    1600,
+    "The double bedroom",
+    "O quarto de casal"
+   ],
+   [
+    "sunset-corner-08",
+    1600,
+    1200,
+    "A twin bedroom",
+    "Um quarto duplo"
+   ]
+  ]
+ }
+}

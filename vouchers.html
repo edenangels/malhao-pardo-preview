@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<script src="js/preview-mode.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Gift vouchers — Herdade do Malhão Pardo</title>
+<meta content="Give a stay in one of the houses at Herdade do Malhão Pardo, near Odemira." name="description"/>
+<meta content="noindex,nofollow" name="robots"/><!-- lift with the rest of the site -->
+<link as="font" crossorigin="" href="fonts/PlayfairDisplay-400-lat.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="fonts/Montserrat-400-lat.woff2" rel="preload" type="font/woff2"/>
+<link href="_lp.css" rel="stylesheet"/>
+</head>
+<body><a class="skip" data-i="skip" href="#content">Skip to content</a>
+<main id="content"><div class="wrap">
+<div class="topbar">
+<a class="brand" href="index.html">
+<img alt="" decoding="async" height="32" src="img/logo-mark.webp" width="30"/>
+<b><span data-i="brand">Herdade do Malhão Pardo</span><small data-i="tr">Turismo Rural</small></b>
+</a>
+<button aria-label="Mudar para português" class="langb" data-langbtn="" type="button">PT</button>
+</div>
+<div class="hero">
+<span class="eyebrow" data-i="eye">Gift vouchers</span>
+<h1 data-i="h1">Give them a few <em>slow days</em> in the Alentejo.</h1>
+<p class="sub" data-i="sub">A voucher for a stay in one of the houses at the herdade. No dates to choose now; they pick when the year allows.</p>
+</div>
+<div class="card">
+<h2 data-i="pick" style="margin-top:0">Choose an amount</h2>
+<p data-i="pickSub" style="font-size:.92rem;opacity:.8">Card, MB WAY or Multibanco, paid securely through Stripe.
+    Your voucher code appears as soon as the payment clears, ready to forward or print.</p>
+<div class="amts" hidden="" id="amts"></div>
+<div class="soon" id="soon">
+<b data-i="soonB">Vouchers open shortly.</b>
+<span data-i="soonT"> The payment gateway is being finalised. Leave your email on the
+      estate page and we will tell you the day they go on sale.</span>
+<div style="margin-top:14px"><a class="btn ghost" data-i="soonCta" href="index.html#list">Keep me told</a></div>
+</div>
+<p class="note" hidden="" id="err"></p>
+</div>
+<h2 data-i="useH">What it can be used for</h2>
+<ul class="facts">
+<li data-i="use1">A stay in one of the five houses on the estate.</li>
+</ul>
+<h2 data-i="fineH">The fine print, plainly</h2>
+<ul class="facts">
+<li data-i="fine1">A voucher bought here without a booked date carries the 14-day right of
+    withdrawal under Decree-Law 24/2014, while it remains unused.</li>
+<li data-i="fine2">Validity: <span class="ph" data-fill="policies.voucherValidity"></span> from the date of purchase,
+    used by prior reservation and subject to availability.</li>
+<li data-i="fine3">Not refundable for cash after the withdrawal period. Any difference in value
+    is settled when the voucher is used.</li>
+<li data-i="fine4">Card details are handled by Stripe on their own pages — they never reach us.</li>
+</ul>
+<footer>
+<a data-i="fEstate" href="index.html">The estate</a>
+<a data-i="fTerms" href="termos.html">Termos e Condições</a>
+<a data-i="fPriv" href="privacidade.html">Privacidade &amp; RGPD</a>
+<a href="https://www.livroreclamacoes.pt/inicio" rel="noopener">Livro de Reclamações</a>
+<br/><span class="ph" data-fill="entity.legalName" data-i="fEnt"></span><span class="ph" data-fill="entity.nipc" data-i="fNipc"></span>
+</footer>
+</div></main>
+<script>
+const PAY='https://malhao-pay.edenrise.workers.dev';
+const I18N_PT={
+ skip:"Saltar para o conteúdo",
+ brand:"Herdade do Malhão Pardo", tr:"Turismo Rural", eye:"Vales-presente",
+ h1:"Ofereça uns <em>dias com calma</em> no Alentejo.",
+ sub:"Um vale para uma estadia numa das casas da herdade. Sem datas a escolher agora; escolhem quando o ano deixar.",
+ pick:"Escolha um valor",
+ pickSub:"Cartão, MB WAY ou Multibanco, com pagamento seguro pela Stripe. O código do vale aparece assim que o pagamento é confirmado, pronto a reenviar ou imprimir.",
+ soonB:"Os vales abrem em breve.",
+ soonT:" O sistema de pagamentos está a ser finalizado. Deixe o seu e-mail na página da herdade e avisamos no dia em que ficarem à venda.",
+ soonCta:"Quero ser avisado",
+ useH:"Em que pode ser usado",
+ use1:"Uma estadia numa das cinco casas da herdade.",
+ fineH:"As condições, com clareza",
+ fine1:"Um vale comprado aqui sem data marcada beneficia do direito de livre resolução de 14 dias, nos termos do Decreto-Lei n.º 24/2014, enquanto não for utilizado.",
+ fine2:'Validade: <span class="ph" data-fill="policies.voucherValidity"></span> a contar da data de compra, mediante reserva prévia e sujeito a disponibilidade.',
+ fine3:"Não reembolsável em dinheiro após o prazo de livre resolução. Qualquer diferença de valor é acertada no momento da utilização.",
+ fine4:"Os dados do cartão são tratados pela Stripe nas páginas da própria Stripe — nunca chegam até nós.",
+ fEstate:"A herdade", fTerms:"Termos e Condições", fPriv:"Privacidade & RGPD",
+ fEnt:"", fNipc:""
+};
+(function(){
+  const EN=Object.create(null);
+  const all=()=>document.querySelectorAll('[data-i]');
+  all().forEach(el=>{ if(!(el.dataset.i in EN)) EN[el.dataset.i]=el.innerHTML; });
+  function apply(lang){
+    const D=lang==='pt'?I18N_PT:EN;
+    all().forEach(el=>{ if(D[el.dataset.i]!=null) el.innerHTML=D[el.dataset.i]; });
+    document.documentElement.lang=lang; window.__lang=lang;
+    document.querySelectorAll('[data-langbtn]').forEach(b=>{
+      b.textContent=lang==='pt'?'EN':'PT';
+      b.setAttribute('aria-label',lang==='pt'?'Switch to English':'Mudar para português'); });
+    if(window.__fill&&window.__content) window.__fill(window.__content);
+    try{ localStorage.setItem('mp-lang',lang); }catch(_){}
+  }
+  let saved=null; try{ saved=localStorage.getItem('mp-lang'); }catch(_){}
+  window.__setLang=apply;
+  apply(saved||((navigator.language||'').toLowerCase().startsWith('pt')?'pt':'en'));
+  document.addEventListener('click',e=>{ const b=e.target.closest('[data-langbtn]');
+    if(!b) return; e.preventDefault(); apply(window.__lang==='pt'?'en':'pt'); });
+})();
+
+/* Self-arming: the amounts appear only once the gateway reports itself configured,
+   exactly as on the estate page — never show a buy button that cannot take money. */
+fetch(PAY+'/config').then(r=>r.json()).then(cfg=>{
+  if(!cfg||!cfg.enabled||!cfg.voucher_eur) return;
+  const box=document.getElementById('amts');
+  /* /config reports euros; /checkout expects cents — same contract the estate page uses. */
+  box.innerHTML=cfg.voucher_eur.map(a=>
+    `<button class="amt" type="button" data-amt="${a*100}">€${a}</button>`).join('');
+  box.hidden=false; document.getElementById('soon').hidden=true;
+  box.addEventListener('click',e=>{
+    const b=e.target.closest('button[data-amt]'); if(!b) return;
+    b.disabled=true;
+    fetch(PAY+'/checkout',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({product:'voucher',amount:+b.dataset.amt})})
+      .then(r=>r.json()).then(d=>{ if(d.url) location.href=d.url; else throw 0; })
+      .catch(()=>{ b.disabled=false; const er=document.getElementById('err');
+        er.hidden=false;
+        er.textContent = window.__lang==='pt'
+          ? 'Não foi possível abrir o pagamento. Tente novamente daqui a pouco.'
+          : 'We could not open the payment page. Please try again in a moment.'; });
+  });
+}).catch(()=>{});
+</script>
+<script src="js/estate.js" defer></script>
+</body>
+</html>

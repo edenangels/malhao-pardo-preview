@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<script src="js/preview-mode.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Thank you — Herdade do Malhão Pardo</title>
+<meta content="noindex,nofollow" name="robots"/>
+<link as="font" crossorigin="" href="fonts/PlayfairDisplay-400-lat.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="fonts/Montserrat-400-lat.woff2" rel="preload" type="font/woff2"/>
+<link href="_lp.css" rel="stylesheet"/>
+<style>
+  .mid{min-height:72vh;display:flex;flex-direction:column;justify-content:center;
+       padding:clamp(40px,8vw,90px) 0}
+  .next{list-style:none;margin-top:2em;display:flex;flex-direction:column;gap:1em;max-width:56ch}
+  .next li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;font-size:.95rem}
+  .next span{font-family:var(--disp);font-size:.8rem;color:var(--terra-text);padding-top:.15em}
+  .ref{font-size:.74rem;opacity:.55;margin-top:2.2em;letter-spacing:.04em}
+  .more{margin-top:2.6em;display:flex;gap:12px;flex-wrap:wrap}
+.vcode{margin:28px 0 8px;padding:22px 24px;border:1px solid rgba(0,0,0,.14);border-radius:14px;text-align:center}
+.vcode small{display:block;letter-spacing:.18em;text-transform:uppercase;font-size:11px;opacity:.7;margin-bottom:8px}
+.vcode b{display:block;font-size:clamp(24px,6vw,34px);letter-spacing:.08em;font-variant-numeric:tabular-nums;user-select:all}
+.vcode p{margin:10px 0 0;font-size:14px;opacity:.8}
+</style>
+</head>
+<body><a class="skip" data-i="skip" href="#content">Skip to content</a>
+<main id="content"><div class="wrap">
+<div class="topbar">
+<a class="brand" href="index.html">
+<img alt="" decoding="async" height="32" src="img/logo-mark.webp" width="30"/>
+<b><span data-i="brand">Herdade do Malhão Pardo</span><small data-i="tr">Turismo Rural</small></b>
+</a>
+<button aria-label="Mudar para português" class="langb" data-langbtn="" type="button">PT</button>
+</div>
+<div class="mid">
+<span class="eyebrow" data-i="eyeEnq" id="eye">Your request</span>
+<h1 data-i="headEnq" id="head">Thank you. It's <em>with us.</em></h1>
+<p class="sub" data-i="subEnq" id="sub">A person here reads every request — not a system.
+    We reply personally, and we do it within 24 hours.</p>
+<div class="vcode" id="order" hidden aria-live="polite"></div>
+<ul class="next" id="next">
+<li><span>01</span><span data-i="n1">Nothing has been charged. This was a request, not a payment.</span></li>
+<li><span>02</span><span data-i="n2">We check the dates against the house and reply within 24 hours.</span></li>
+<li><span>03</span><span data-i="n3">You get exact availability and a full price — VAT and any tourist tax included, nothing added later.</span></li>
+<li><span>04</span><span data-i="n4">Only then do you decide. Cancellation terms come with that reply.</span></li>
+</ul>
+<div class="more">
+<a class="btn ghost" data-i="back" href="index.html">Back to the herdade</a>
+<a class="btn ghost" data-i="seeCircuit" href="index.html#stays">See the houses</a>
+</div>
+<p class="ref" id="sid"></p>
+</div>
+<footer>
+<a data-i="fEstate" href="index.html">The estate</a>
+<a data-i="fTerms" href="termos.html">Termos e Condições</a>
+<a data-i="fPriv" href="privacidade.html">Privacidade &amp; RGPD</a>
+</footer>
+</div></main>
+<script>
+const I18N_PT={
+ skip:"Saltar para o conteúdo",
+ brand:"Herdade do Malhão Pardo", tr:"Turismo Rural",
+ eyeEnq:"O seu pedido", eyePay:"A sua compra", eyeList:"A lista",
+ headEnq:"Obrigado. Está <em>connosco.</em>",
+ headPay:"Obrigado. Está <em>tratado.</em>",
+ headList:"Ficou <em>na lista.</em>",
+ subEnq:"Há uma pessoa aqui que lê todos os pedidos — não é um sistema. Respondemos pessoalmente, e fazemo-lo em 24 horas.",
+ subPay:"O pagamento foi concluído e a Stripe está a enviar-lhe o recibo por e-mail. Uma pessoa daqui entra em contacto para combinar os pormenores.",
+ subList:"Escrevemos quando abrirem datas — e nada antes disso.",
+ n1:"Nada foi cobrado. Isto foi um pedido, não um pagamento.",
+ n2:"Confirmamos as datas com a casa e respondemos em 24 horas.",
+ n3:"Recebe disponibilidade exata e um preço completo — IVA e eventual taxa turística incluídos, sem nada acrescentado depois.",
+ n4:"Só então decide. As condições de cancelamento seguem nessa resposta.",
+ p1:"O recibo chega por e-mail, enviado pela Stripe.",
+ p2:"Uma pessoa daqui escreve-lhe para combinar data, hora e qualquer pormenor.",
+ p3:"Guarde a referência abaixo — é o que precisamos para encontrar a sua compra.",
+ p4:"Qualquer dúvida, responda simplesmente a esse e-mail.",
+ back:"Voltar à herdade", seeCircuit:"Ver as casas",
+ fEstate:"A herdade", fTerms:"Termos e Condições", fPriv:"Privacidade & RGPD"
+};
+(function(){
+  /* One page, three arrivals: a booking request, a completed Stripe payment
+     (Stripe returns here with ?sid=), or a waitlist sign-up. */
+  const qs = new URLSearchParams(location.search);
+  const sid = qs.get('sid') || qs.get('pay');   // Stripe voucher (?sid=) or hub deposit (?pay=)
+  const kind = sid ? 'Pay' : (qs.get('type') === 'list' ? 'List' : 'Enq');
+
+  document.getElementById('eye').dataset.i  = 'eye'  + kind;
+  document.getElementById('head').dataset.i = 'head' + kind;
+  document.getElementById('sub').dataset.i  = 'sub'  + kind;
+
+  if (kind === 'Pay') {
+    const EN = ["The receipt arrives by email, sent by Stripe.",
+                "A person here will write to arrange the date, the time and any detail.",
+                "Keep the reference below — it is what we need to find your purchase.",
+                "Any question at all, simply reply to that email."];
+    document.querySelectorAll('#next li').forEach((li,i)=>{
+      const t = li.querySelector('[data-i]');
+      t.dataset.i = 'p' + (i+1); t.textContent = EN[i];
+    });
+  } else if (kind === 'List') {
+    document.getElementById('next').remove();
+  }
+  if (sid) document.getElementById('sid').textContent = 'Reference: ' + sid;
+
+  /* A stay deposit paid through the booking hub (?pay=pay_…): say which house and dates are confirmed. */
+  const payId = qs.get('pay');
+  if (payId && /^pay_[a-f0-9]{12}$/.test(payId)) {
+    const box = document.getElementById('order'), pt = () => window.__lang === 'pt';
+    const d8 = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString(pt() ? 'pt-PT' : 'en-GB', { day: 'numeric', month: 'long', timeZone: 'UTC' });
+    let tries = 0;
+    const ask = () => fetch('https://malhao-desk.edenrise.workers.dev/pay-status?id=' + payId, { cache: 'no-store' }).then(r => r.json()).then(d => {
+      if (d.status === 'paid') {
+        box.innerHTML = pt() ? `<small>Reserva confirmada</small><b>${d.house}</b><p>${d8(d.check_in)} a ${d8(d.check_out)} · sinal de €${d.amount_eur} recebido. A confirmação segue por email.</p>`
+                             : `<small>Booking confirmed</small><b>${d.house}</b><p>${d8(d.check_in)} to ${d8(d.check_out)} · €${d.amount_eur} deposit received. Your confirmation follows by email.</p>`;
+        box.hidden = false;
+      } else if (d.status === 'processing') {
+        box.innerHTML = pt() ? `<small>A aguardar pagamento</small><p>Escolheu Multibanco. As suas datas na ${d.house} ficam guardadas até o pagamento chegar.</p>`
+                             : `<small>Waiting for payment</small><p>You chose Multibanco. Your dates at ${d.house} stay held until the payment arrives.</p>`;
+        box.hidden = false;
+      } else if (++tries < 6) setTimeout(ask, 2000);
+    }).catch(() => { if (++tries < 6) setTimeout(ask, 2000); });
+    ask();
+  }
+  /* Stripe Checkout orders (vouchers): ask the payments service how the order stands.
+     The webhook can trail the redirect by a few seconds, so ask a few times. */
+  if (sid && /^cs_(live|test)_/.test(sid)) {
+    const box = document.getElementById('order');
+    const pt = () => window.__lang === 'pt';
+    const show = (d) => {
+      if (d.status === 'paid' && d.code) {
+        box.innerHTML = pt()
+          ? `<small>O seu código de vale</small><b>${d.code}</b><p>Vale de €${d.amount_eur}. Guarde este código (pode fazer captura de ecrã) — é ele que apresenta na herdade.</p>`
+          : `<small>Your voucher code</small><b>${d.code}</b><p>€${d.amount_eur} voucher. Keep this code (a screenshot is fine) — it is what you show at the herdade.</p>`;
+      } else if (d.status === 'paid') {
+        box.innerHTML = pt() ? `<small>Pagamento recebido</small><p>€${d.amount_eur} · ${d.qty>1? d.qty+' pessoas':'1 pessoa'}. Escrevemos-lhe em 24 horas para confirmar data e hora.</p>`
+                             : `<small>Payment received</small><p>€${d.amount_eur} · ${d.qty>1? d.qty+' people':'1 person'}. We will write within 24 hours to confirm the date and time.</p>`;
+      } else if (d.status === 'pending') {
+        box.innerHTML = pt()
+          ? `<small>A aguardar pagamento</small><p>Escolheu Multibanco. A referência seguiu por e-mail, enviada pela Stripe. Assim que o pagamento for feito, enviamos-lhe ${d.product==='voucher'?'o código do vale':'a confirmação'}.</p>`
+          : `<small>Waiting for payment</small><p>You chose Multibanco. The payment reference was emailed to you by Stripe. As soon as it is paid, we send you ${d.product==='voucher'?'your voucher code':'the confirmation'}.</p>`;
+        const h = document.getElementById('head');
+        h.innerHTML = pt() ? 'Quase <em>lá.</em>' : 'Almost <em>there.</em>';
+        document.getElementById('sub').textContent = pt()
+          ? 'A sua encomenda está registada. Só fica confirmada quando o pagamento Multibanco chegar.'
+          : 'Your order is registered. It is confirmed once the Multibanco payment arrives.';
+      } else return false;
+      box.hidden = false; return true;
+    };
+    let tries = 0, last = null;
+    const ask = () => fetch('https://malhao-pay.edenrise.workers.dev/order?sid=' + encodeURIComponent(sid), { cache: 'no-store' })
+      .then(r => r.json()).then(d => { last = d; if (!show(d) && ++tries < 6) setTimeout(ask, 2000); })
+      .catch(() => { if (++tries < 6) setTimeout(ask, 2000); });
+    ask();
+    document.addEventListener('click', e => { if (e.target.closest('[data-langbtn]') && last) setTimeout(() => show(last), 0); });
+  }
+
+  const EN = Object.create(null);
+  const all = () => document.querySelectorAll('[data-i]');
+  all().forEach(el => { if (!(el.dataset.i in EN)) EN[el.dataset.i] = el.innerHTML; });
+  function apply(lang){
+    const D = lang === 'pt' ? I18N_PT : EN;
+    all().forEach(el => { if (D[el.dataset.i] != null) el.innerHTML = D[el.dataset.i]; });
+    document.documentElement.lang = lang; window.__lang = lang;
+    document.querySelectorAll('[data-langbtn]').forEach(b=>{
+      b.textContent = lang === 'pt' ? 'EN' : 'PT';
+      b.setAttribute('aria-label', lang === 'pt' ? 'Switch to English' : 'Mudar para português'); });
+    if (window.__fill && window.__content) window.__fill(window.__content);
+    try { localStorage.setItem('mp-lang', lang); } catch(_) {}
+  }
+  let saved=null; try{ saved=localStorage.getItem('mp-lang'); }catch(_){}
+  window.__setLang = apply;
+  apply(saved || ((navigator.language||'').toLowerCase().startsWith('pt') ? 'pt' : 'en'));
+  document.addEventListener('click', e => { const b = e.target.closest('[data-langbtn]');
+    if (!b) return; e.preventDefault(); apply(window.__lang === 'pt' ? 'en' : 'pt'); });
+})();
+</script>
+<script src="js/estate.js" defer></script>
+</body>
+</html>
