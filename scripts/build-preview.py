@@ -8,6 +8,7 @@ for pattern in ('*.html','*.css','robots.txt','.nojekyll'):
  for f in root.glob(pattern): shutil.copy2(f,out/f.name)
 shutil.copytree(root/'js',out/'js',dirs_exist_ok=True)
 shutil.copytree(root/'img',out/'img',dirs_exist_ok=True) if (root/'img').exists() else None
+shutil.copytree(root/'preview-data',out/'preview-data',dirs_exist_ok=True)
 assets=json.loads((root/'preview-assets.json').read_text())
 def fetch(item):
  path=item['path']

@@ -1,10 +1,15 @@
 (() => {
   const originalFetch = window.fetch.bind(window);
+  const base = new URL('../', document.currentScript.src);
   window.fetch = function(input, options = {}) {
     const method = String(options.method || (input instanceof Request ? input.method : 'GET')).toUpperCase();
     if (!['GET', 'HEAD'].includes(method)) {
       alert(document.documentElement.lang === 'pt' ? 'Pré-visualização: os pedidos, pagamentos e mensagens estão desativados.' : 'Preview only: bookings, payments and messages are disabled.');
       return Promise.reject(new Error('Preview mode: submission disabled'));
+    }
+    const url = new URL(input instanceof Request ? input.url : String(input), location.href);
+    if (url.origin === 'https://malhao-pay.edenrise.workers.dev' && ['/config', '/content'].includes(url.pathname)) {
+      return originalFetch(new URL('preview-data' + url.pathname + '.json', base));
     }
     return originalFetch(input, options);
   };

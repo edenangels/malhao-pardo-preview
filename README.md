@@ -9,3 +9,5 @@ The preview supports browsing, galleries and language switching. Production book
 Push reviewed changes to this repository's `main` branch to update its GitHub Pages preview. Final integration with the production website is a separate task for the site maintainer. Do not copy the preview-only overlay, submission guard or Pages workflow into production.
 
 No custom domain or deployment secrets are required. GitHub Actions uses its built-in token. Media source: the owner-provided website kit, verified against the existing public site during builds.
+
+Public configuration and entity copy are snapshotted under `preview-data/` so the preview renders without production cross-origin access. Refresh these public snapshots deliberately when reviewing updated content.
